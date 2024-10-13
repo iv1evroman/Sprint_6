@@ -8,7 +8,7 @@ class BasePage:
         self.driver = driver
 
     def find_element_with_wait(self, locator):
-        WebDriverWait(self.driver, 3).until(expected_conditions.visibility_of_element_located(locator))
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
 
     def click_to_element(self, locator):
@@ -26,6 +26,6 @@ class BasePage:
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     def format_locators(self, locator_1, num):
-        method, locator = locator_1  # '//*[@class="my-question-locator-{}"]'
-        locator = locator.format(num)  # '//*[@class="my-question-locator-1"]'
+        method, locator = locator_1
+        locator = locator.format(num)
         return method, locator
