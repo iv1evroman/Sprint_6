@@ -35,7 +35,7 @@ class TestMainPage:
         main_page = MainPage(driver)
         order_page = OrderPage(driver)
         driver.get('https://qa-scooter.praktikum-services.ru/')
-        main_page.click_to_element(MainPageLocators.UPPER_ORDER_PAGE)
+        main_page.click_to_element(MainPageLocators.UPPER_ORDER_BUTTON)
         order_page.click_to_element(HeaderLocators.SCOOTER_LOGO_BUTTON)
         assert 'на пару дней' in main_page.get_text_from_element(MainPageLocators.HOME_PAGE_HEADER)
 

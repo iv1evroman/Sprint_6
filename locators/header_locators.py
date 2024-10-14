@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class HeaderLocators:
     SCOOTER_LOGO_BUTTON = By.XPATH, './/img[@alt ="Scooter"]'
     YANDEX_LOGO_BUTTON = By.XPATH, './/img[@alt ="Yandex"]'
