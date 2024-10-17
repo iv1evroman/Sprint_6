@@ -1,10 +1,26 @@
 from pages.base_page import BasePage
+from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import (OrderPageLocators)
 import allure
 from helpers import Helpers
 
 
 class OrderPage(BasePage):
+    @allure.step('Открываем страницу заказа нажав на верхню кнопку "Заказать"')
+    def get_order_page_by_clicking_upper_order_page(self):
+        self.get_main_page()
+        self.click_to_element(MainPageLocators.COOKIE_LOCATOR)
+        self.click_to_element(MainPageLocators.UPPER_ORDER_BUTTON)
+        return self.get_text_from_element(OrderPageLocators.ORDER_PAGE_HEADER_LOCATOR)
+
+    @allure.step('Открываем страницу заказа нажав на нижнюю кнопку "Заказать"')
+    def get_order_page_by_clicking_lower_order_page(self):
+        self.get_main_page()
+        self.click_to_element(MainPageLocators.COOKIE_LOCATOR)
+        self.scroll_to_element(MainPageLocators.QUESTIONS_HEADER_LOCATOR)
+        self.find_element_with_wait(MainPageLocators.LOWER_ORDER_BUTTON)
+        self.click_to_element(MainPageLocators.LOWER_ORDER_BUTTON)
+        return self.get_text_from_element(OrderPageLocators.ORDER_PAGE_HEADER_LOCATOR)
 
     @allure.step('Создаем заказ')
     def set_order(self, name, last_name, address, day):

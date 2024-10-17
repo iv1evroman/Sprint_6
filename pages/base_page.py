@@ -29,3 +29,10 @@ class BasePage:
         method, locator = locator_1
         locator = locator.format(num)
         return method, locator
+
+    def get_main_page(self):
+        return self.driver.get('https://qa-scooter.praktikum-services.ru/')
+
+    def switch_to_new_page(self):
+        handles = self.driver.window_handles
+        return self.driver.switch_to.window(handles[1])
