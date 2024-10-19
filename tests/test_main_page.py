@@ -5,7 +5,7 @@ import allure
 
 
 class TestMainPage:
-    @allure.description('Проверяем, что при клике на вопрос ответ правильный')
+    @allure.description('Добавляем параметризацию для теста FAQ')
     @pytest.mark.parametrize(
         'num, result',
         [
@@ -19,18 +19,19 @@ class TestMainPage:
             (7, ANSWER_TEXTS[7]),
         ]
     )
+    @allure.title('Проверка, что при клике на вопрос ответ правильный')
     def test_questions_and_answers(self, driver, num, result):
         main_page = MainPage(driver)
         main_page.open_main_page_and_close_cookie_message()
         assert main_page.get_answer_text(num) == result
 
-    @allure.description('Проверяем, что при клике на логотип "Самоката" открывается главная страница')
+    @allure.title('Проверка, что при клике на логотип "Самоката" открывается главная страница')
     def test_scooter_logo_click(self, driver):
         main_page = MainPage(driver)
         assert 'на пару дней' in main_page.clicking_to_scooter_logo_and_getting_main_page_header()
 
-    @allure.description('Проверяем, что при клике на логотип яндекса происходит редирект и открывается главная страница'
-                        ' Дзена.')
+    @allure.title('Проверка того, что при клике на логотип яндекса происходит редирект и открывается '
+                  'главная страница Дзена.')
     def test_yandex_logo_click(self, driver):
         main_page = MainPage(driver)
         assert 'Найти' in main_page.clicking_to_yandex_logo_and_getting_search_button_text()

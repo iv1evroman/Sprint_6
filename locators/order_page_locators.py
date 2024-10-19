@@ -17,4 +17,3 @@ class OrderPageLocators:
     CONFIRMATION_BUTTON_LOCATOR = By.XPATH, './/button[contains(text(),"Да")]'
     ORDER_CONFIRMATION_TEXT_LOCATOR = By.CLASS_NAME, 'Order_ModalHeader__3FDaJ'
     ORDER_PAGE_HEADER_LOCATOR = By.CLASS_NAME, 'Order_Header__BZXOb'
-
